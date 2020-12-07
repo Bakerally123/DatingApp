@@ -53,9 +53,10 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+           // app.UseCors(policy=>policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(policy => policy.WithOrigins("https://localhost:4200").AllowAnyHeader().WithHeaders("authorization", "accept", "content-type", "origin"));
             app.UseAuthorization();
-
+          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
