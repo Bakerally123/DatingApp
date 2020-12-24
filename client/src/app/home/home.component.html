@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <div style="text-align:center;" *ngIf="!registerMode">
+        <h1>Find your match</h1>
+        <p class="lead">
+            Come and find your match. Sign up!
+        </p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">Register</button>
+            <button class="btn btn-primary btn-lg mr-2">Dummy</button>
+        </div>
+    </div>
+    <div class="container" *ngIf="registerMode">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <p>
+                    <!--usersFromHomeComponent is input for childregister and cancelRegister is output declared
+                    in register recieved by home using emit emmitter which passes bool value thru $event -->
+                    <app-register (cancelRegister) = "cancelRegisterMode($event)"></app-register>>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
